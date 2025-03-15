@@ -1,5 +1,7 @@
 # Проектная работа "Веб-ларек"
 
+"Web-ларёк" - это интернет-магазин с товарами для веб-разработчиков. В нём можно посмотреть каталог товаров, добавить товары в корзину и сделать заказ. 
+
 Стек: HTML, SCSS, TS, Webpack
 
 Структура проекта:
@@ -39,4 +41,56 @@ npm run build
 
 ```
 yarn build
+```
+
+## Ключевые типы данных.
+
+Описание интерфейса карточки товара
+
+```
+interface IProduct {
+  id: string;
+  description: string;
+  image: string;
+  title: string;
+  category: string;
+  price: number;
+};
+```
+Описание интерфейса пользователя
+
+```
+interface IUser {
+  address: string;
+  email: string;
+  phone: string;
+  isOnline: boolean;
+}
+```
+
+Хранение коллекции карточек товаров
+
+```
+interface IProductsData {
+  products: IProduct[],
+  preview: string | null;
+}
+```
+
+Данные карточки в форме добавления товара в корзину
+
+```
+type TProductInfo = Pick<IProduct, 'description' | 'category' | 'title' | 'image' | 'price'>;
+```
+
+Данные пользователя в форме заказа - адрес и способ оплаты, выбранный им 
+
+```
+type TUserAddress = Pick<IUser, 'address' | 'isOnline'>;
+```
+
+Данные пользователя в форме заказа - контактная информация
+
+```
+type TUserContacts = Pick<IUser, 'email' | 'phone'>;
 ```
