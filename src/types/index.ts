@@ -5,9 +5,18 @@ export interface IProduct {
   title: string;
   category: string;
   price: number | null;
-};
+}
+
+export interface IProductPreview {
+  description: string;
+}
 
 export type IBasketItem = Pick<IProduct, 'id' | 'title' | 'price'>;
+
+export interface IBasket {
+  products: string[];
+  totalPrice: number;
+}
 
 export interface IAppState {
     catalog: IProduct[];
@@ -16,15 +25,11 @@ export interface IAppState {
     order: IOrder | null;
 }
 
-export interface IOrderForm {
-    email: string;
-    phone: string;
-    address: string;
-}
-
-export interface IOrder extends IOrderForm {
-    items: string[];
-    total: number;
+export interface IOrder {
+  email: string;
+  address: string;
+  phone: string;
+  total: number;
 }
 
 export interface IBasketModel {
