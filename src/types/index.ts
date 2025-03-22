@@ -1,6 +1,5 @@
 export interface IProduct {
   id: string;
-  description?: string;
   image: string;
   title: string;
   category: string;
@@ -25,17 +24,25 @@ export interface IAppState {
     order: IOrder | null;
 }
 
-export interface IOrder {
+export interface IForm {
+  valid: boolean;
+  errors: string[];
+}
+
+export interface IOrderForm {
   email: string;
   address: string;
   phone: string;
+  payment: string;
+}
+
+export interface IOrder extends IOrderForm {
+  items: string[];
   total: number;
 }
 
-export interface IBasketModel {
-  basketItems: IProduct[],
-  order: IOrder,
-  total: number
+export interface IModalData {
+  content: HTMLElement;
 }
 
 export type FormErrors = Partial<Record<keyof IOrder, string>>;
@@ -45,9 +52,16 @@ export interface IOrderResult {
     total: string;
 }
 
-export interface IAppState {
-  catalog: IProduct[];
-  basket: string[];
-  preview: string | null;
-  order: IOrder | null;
+export interface ISuccsess {
+  total: number;
+}
+
+export interface ISuccessActions {
+  onClick: () => void;
+}
+
+export interface IPage {
+  counter: number;
+  catalog: HTMLElement[];
+  locked: boolean;
 }
