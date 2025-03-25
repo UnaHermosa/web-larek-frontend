@@ -1,5 +1,5 @@
-import { createElement,ensureElement } from '../../utils/utils';
-import { Component } from '../base/Component';
+import { createElement, ensureElement } from '../../utils/utils';
+import { Component } from '../base/component';
 import { EventEmitter } from '../base/events';
 import { IBasket } from '../../types';
 
@@ -41,9 +41,11 @@ export class Basket extends Component<IBasket> {
 	}
 
 	setButtonDisabled(itemId: string, isDisabled: boolean, price: number) {
-		const buyButton = document.getElementById(`buy-button-${itemId}`) as HTMLButtonElement;
+		const buyButton = document.getElementById(
+			`buy-button-${itemId}`
+		) as HTMLButtonElement;
 		if (buyButton) {
-		  buyButton.disabled = isDisabled || price <= 0;
+			buyButton.disabled = isDisabled || price <= 0;
 		}
 	}
 }
