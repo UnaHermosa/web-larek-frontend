@@ -68,7 +68,7 @@ export class Product<T> extends Component<IProduct> {
     }
 }
 
-export class CardPreview extends Product<IProductPreview> {
+export class ProductPreview extends Product<IProductPreview> {
     protected _description: HTMLElement;
     protected _button:HTMLButtonElement;
     
