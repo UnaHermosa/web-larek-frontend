@@ -7,11 +7,7 @@ export class Success extends Component<ISuccess> {
 	protected _price: HTMLElement;
 	protected _close: HTMLElement;
 
-	constructor(
-		container: HTMLElement,
-		actions: ISuccessActions,
-		events: IEvents
-	) {
+	constructor(container: HTMLElement, actions: ISuccessActions, events: IEvents) {
 		super(container, events);
 
 		this._close = ensureElement<HTMLElement>(
